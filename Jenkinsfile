@@ -90,7 +90,7 @@ pipeline {
         sh "sed -i 's@${DOCKERHUB1}:.*@${DOCKERHUB1}:${currentBuild.number}@g' deploy/deployment.yml"
         sh "sed -i 's@${DOCKERHUB2}:.*@${DOCKERHUB2}:${currentBuild.number}@g' deploy/deployment.yml"
         sh "git add ."
-        sh "git commit -m 'fix:${DOCKERHUB} ${currentBuild.number} image versioning'"
+        sh "git commit -m 'fix:${DOCKERHUB1} ${currentBuild.number} image versioning'"
         sh "git branch -M main"
         sh "git remote remove origin"
         sh "git remote add origin ${GITDEPADD}"
